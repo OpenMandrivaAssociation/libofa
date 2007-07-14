@@ -1,10 +1,12 @@
 %define name	libofa
 %define version 0.9.3
-%define release %mkrel 2
+%define release %mkrel 3
 %define summary	Open Fingerprint Architecture library
 
 %define major	0
-%define libname	%mklibname ofa %major
+%define libname	%mklibname ofa %{major}
+%define develname %mklibname ofa -d
+%define staticdevelname %mklibname ofa -d -s
 
 Summary:	%{summary}
 Name:		%{name}
@@ -40,33 +42,35 @@ Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
     * fix metadata
     * find out more about tracks by connecting to MusicBrainz- the worlds largest music metabase community
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Files needed for developing applications which use litunepimp
 Group:		Development/C
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
+Obsoletes:	%mklibname ofa 0 -d
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 The %{name}-devel package includes the header files and .so libraries
 necessary for developing libofa enabled tagging applications.
 
 If you are going to develop libofa enabled tagging 
 applications you should install %{name}-devel. You'll also need 
-to have the %name package installed.
+to have the %{name} package installed.
 
-%package -n	%{libname}-static-devel
+%package -n	%{staticdevelname}
 Summary:        Static libraries for libtunepimp
 Group:          Development/C
 Provides:       %{name}-static-devel = %{version}-%{release}
 Requires:       %{libname}-devel = %{version}-%{release}
+Obsoletes:	%mklibname ofa 0 -d -s
 
-%description -n	%{libname}-static-devel
+%description -n	%{staticdevelname}
 The %{name}-devel package includes the static libraries
 necessary for developing libofa enabled tagging
 applications using the %{name} library.
 
 If you are going to develop libofa enabled tagging applications,
-you should install %{name}-devel.  You'll also need to have the %name
+you should install %{name}-devel.  You'll also need to have the %{name}
 package installed.
 
 %prep
@@ -74,15 +78,15 @@ package installed.
 %patch0 -p0
 
 %build
-%configure
-make
+%configure2_5x
+%make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf %buildroot
+rm -rf %{buildroot}
 
 %post -p /sbin/ldconfig -n %{libname}
 %postun -p /sbin/ldconfig -n %{libname}
@@ -90,15 +94,15 @@ rm -rf %buildroot
 %files -n %{libname}
 %defattr(-,root,root)
 %doc AUTHORS README COPYING
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/pkgconfig/libofa.pc
 %{_libdir}/*.so
 %{_libdir}/*.la
 
-%files -n %{libname}-static-devel
+%files -n %{staticdevelname}
 %defattr(-,root,root)
 %{_libdir}/*.a
