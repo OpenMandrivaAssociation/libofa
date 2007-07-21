@@ -1,6 +1,6 @@
 %define name	libofa
 %define version 0.9.3
-%define release %mkrel 3
+%define release %mkrel 4
 %define summary	Open Fingerprint Architecture library
 
 %define major	0
@@ -61,7 +61,7 @@ to have the %{name} package installed.
 Summary:        Static libraries for libtunepimp
 Group:          Development/C
 Provides:       %{name}-static-devel = %{version}-%{release}
-Requires:       %{libname}-devel = %{version}-%{release}
+Requires:       %{develname} = %{version}-%{release}
 Obsoletes:	%mklibname ofa 0 -d -s
 
 %description -n	%{staticdevelname}
