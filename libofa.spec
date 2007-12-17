@@ -16,7 +16,6 @@ Source0:	http://www.musicdns.org/themes/musicdns_org/downloads/%{name}-%{version
 Patch0:		libofa-build-fix.patch
 License:	GPL
 Group:		System/Libraries
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url:		http://www.musicdns.org
 BuildRequires:	fftw3-devel
 BuildRequires:	libcurl-devel
