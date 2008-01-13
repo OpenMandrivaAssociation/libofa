@@ -1,6 +1,6 @@
 %define name	libofa
 %define version 0.9.3
-%define release %mkrel 4
+%define release %mkrel 5
 %define summary	Open Fingerprint Architecture library
 
 %define major	0
