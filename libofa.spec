@@ -26,9 +26,11 @@ BuildRequires:	libexpat-devel
 %description
 Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
 
-    * identify duplicate tracks, even when the metadata is different, MusicIP identifies the master recording.
+	* identify duplicate tracks, even when the metadata is different, MusicIP
+	  identifies the master recording.
     * fix metadata
-    * find out more about tracks by connecting to MusicBrainz- the worlds largest music metabase community
+	* find out more about tracks by connecting to MusicBrainz- the worlds
+	  largest music metabase community
 
 %package -n	%{libname}
 Summary:        %{summary}
@@ -38,9 +40,11 @@ Provides:	%{name} = %{version}-%{release}
 %description -n	%{libname}
 Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
 
-    * identify duplicate tracks, even when the metadata is different, MusicIP identifies the master recording.
+	* identify duplicate tracks, even when the metadata is different, MusicIP
+	  identifies the master recording.
     * fix metadata
-    * find out more about tracks by connecting to MusicBrainz- the worlds largest music metabase community
+	* find out more about tracks by connecting to MusicBrainz- the worlds
+	  largest music metabase community
 
 %package -n	%{develname}
 Summary:	Files needed for developing applications which use litunepimp
