@@ -1,6 +1,5 @@
 %define name	libofa
 %define version 0.9.3
-%define release %mkrel 5
 %define summary	Open Fingerprint Architecture library
 
 %define major	0
@@ -11,7 +10,7 @@
 Summary:	%{summary}
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 6
 Source0:	http://www.musicdns.org/themes/musicdns_org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		libofa-build-fix.patch
 License:	GPL
