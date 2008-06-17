@@ -10,7 +10,7 @@
 Summary:	%{summary}
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 6
+Release:	%mkrel 7
 Source0:	http://www.musicdns.org/themes/musicdns_org/downloads/%{name}-%{version}.tar.bz2
 Patch0:		libofa-build-fix.patch
 License:	GPL
