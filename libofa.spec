@@ -1,26 +1,22 @@
-%define name	libofa
-%define version 0.9.3
-%define summary	Open Fingerprint Architecture library
-
-%define major	0
-%define libname	%mklibname ofa %{major}
+%define major 0
+%define libname %mklibname ofa %{major}
 %define develname %mklibname ofa -d
 %define staticdevelname %mklibname ofa -d -s
 
-Summary:	%{summary}
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel 7
-Source0:	http://www.musicdns.org/themes/musicdns_org/downloads/%{name}-%{version}.tar.bz2
-Patch0:		libofa-build-fix.patch
+Summary:	Open Fingerprint Architecture library
+Name:		libofa
+Version:	0.9.3
+Release:	%mkrel 8
 License:	GPL
 Group:		System/Libraries
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Url:		http://www.musicdns.org
+URL:		http://code.google.com/p/musicip-libofa/
+Source0:	http://musicip-libofa.googlecode.com/files/%{name}-%{version}.tar.gz
+Patch0:		libofa-build-fix.patch
+Patch1:		libofa-gcc43.diff
 BuildRequires:	fftw3-devel
 BuildRequires:	libcurl-devel
 BuildRequires:	libexpat-devel
-
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
@@ -32,7 +28,7 @@ Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
 	  largest music metabase community
 
 %package -n	%{libname}
-Summary:        %{summary}
+Summary:        Open Fingerprint Architecture library
 Group:          System/Libraries
 Provides:	%{name} = %{version}-%{release}
 
@@ -77,8 +73,10 @@ you should install %{name}-devel.  You'll also need to have the %{name}
 package installed.
 
 %prep
+
 %setup -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 %configure2_5x
@@ -86,17 +84,19 @@ package installed.
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std
 
-%clean
-rm -rf %{buildroot}
+%makeinstall_std
 
 %if %mdkversion < 200900
 %post -p /sbin/ldconfig -n %{libname}
 %endif
+
 %if %mdkversion < 200900
 %postun -p /sbin/ldconfig -n %{libname}
 %endif
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
