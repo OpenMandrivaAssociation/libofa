@@ -6,13 +6,14 @@
 Summary:	Open Fingerprint Architecture library
 Name:		libofa
 Version:	0.9.3
-Release:	%mkrel 10
+Release:	%mkrel 11
 License:	GPL
 Group:		System/Libraries
 URL:		http://code.google.com/p/musicip-libofa/
 Source0:	http://musicip-libofa.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		libofa-build-fix.patch
 Patch1:		libofa-gcc43.diff
+Patch2:		libofa-0.9.3-pkgconfig-drop-expat.patch
 BuildRequires:	fftw3-devel
 BuildRequires:	libcurl-devel
 BuildRequires:	libexpat-devel
@@ -76,6 +77,7 @@ package installed.
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p0
 
 %build
 %configure2_5x
