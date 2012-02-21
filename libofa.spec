@@ -6,7 +6,7 @@
 Summary:	Open Fingerprint Architecture library
 Name:		libofa
 Version:	0.9.3
-Release:	%mkrel 14
+Release:	%mkrel 15
 License:	GPLv2
 Group:		System/Libraries
 URL:		http://code.google.com/p/musicip-libofa/
@@ -87,14 +87,7 @@ package installed.
 rm -rf %{buildroot}
 
 %makeinstall_std
-
-%if %mdkversion < 200900
-%post -p /sbin/ldconfig -n %{libname}
-%endif
-
-%if %mdkversion < 200900
-%postun -p /sbin/ldconfig -n %{libname}
-%endif
+rm -f %buildroot%_libdir/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -109,7 +102,6 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %{_libdir}/pkgconfig/libofa.pc
 %{_libdir}/*.so
-%{_libdir}/*.la
 
 %files -n %{staticdevelname}
 %defattr(-,root,root)
