@@ -14,6 +14,7 @@ Source0:	http://musicip-libofa.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		libofa-build-fix.patch
 Patch1:		libofa-gcc43.diff
 Patch2:		libofa-0.9.3-pkgconfig-drop-expat.patch
+Patch3:		libofa-0.9.3-curl-includes.patch
 BuildRequires:	fftw3-devel
 BuildRequires:	libcurl-devel
 BuildRequires:	libexpat-devel
@@ -78,6 +79,7 @@ package installed.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %configure2_5x
