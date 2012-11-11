@@ -1,0 +1,59 @@
+diff -Naurp libofa-0.9.3/examples/example.cpp libofa-0.9.3.oden/examples/example.cpp
+--- libofa-0.9.3/examples/example.cpp	2006-05-10 14:05:37.000000000 -0400
++++ libofa-0.9.3.oden/examples/example.cpp	2008-06-28 17:19:42.000000000 -0400
+@@ -7,6 +7,7 @@
+ 
+ -------------------------------------------------------------------*/
+ 
++#include <string.h>
+ #include "protocol.h"
+ 
+ AudioData* loadWaveFile(char *file);
+diff -Naurp libofa-0.9.3/examples/protocol.cpp libofa-0.9.3.oden/examples/protocol.cpp
+--- libofa-0.9.3/examples/protocol.cpp	2006-05-10 14:05:42.000000000 -0400
++++ libofa-0.9.3.oden/examples/protocol.cpp	2008-06-28 17:19:42.000000000 -0400
+@@ -6,6 +6,7 @@
+    No rights reserved.
+ 
+ -------------------------------------------------------------------*/
++#include <string.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string>
+diff -Naurp libofa-0.9.3/lib/signal_op.cpp libofa-0.9.3.oden/lib/signal_op.cpp
+--- libofa-0.9.3/lib/signal_op.cpp	2006-05-10 14:01:12.000000000 -0400
++++ libofa-0.9.3.oden/lib/signal_op.cpp	2008-06-28 17:19:42.000000000 -0400
+@@ -12,6 +12,8 @@
+ // DATE CREATED: 1/12/06
+ 
+ 
++#include <stdlib.h>
++#include <inttypes.h>
+ #include <math.h>
+ #include "signal_op.h"
+ #include "AFLIB/aflibConverter.h"
+Index: libofa-0.9.3/examples/protocol.cpp
+===================================================================
+--- libofa-0.9.3/examples/protocol.cpp
++++ libofa-0.9.3/examples/protocol.cpp	2009-05-26 15:21:22.000000000 +0200
+@@ -171,7 +171,7 @@
+ 
+     err = string(XML_ErrorString(XML_GetErrorCode(parser)));
+     char num[10];
+-    sprintf(num, "%d", XML_GetCurrentLineNumber(parser));
++    sprintf(num, "%d", (int)XML_GetCurrentLineNumber(parser));
+     err += string(" on line ") + string(num);
+     XML_ParserFree(parser);
+ 
+Index: libofa-0.9.3/examples/example.cpp
+===================================================================
+--- libofa-0.9.3/examples/example.cpp
++++ libofa-0.9.3/examples/example.cpp	2009-05-26 15:35:37.000000000 +0200
+@@ -8,6 +8,7 @@
+ -------------------------------------------------------------------*/
+ 
+ #include <string.h>
++#include <cstdio>
+ #include "protocol.h"
+ 
+ AudioData* loadWaveFile(char *file);
