@@ -16,8 +16,8 @@ Patch2:		libofa-0.9.3-pkgconfig-drop-expat.patch
 Patch3:		libofa-0.9.3-curl.patch
 Patch4:		libofa-0.9.3-fedora-gcc47.patch
 BuildRequires:	fftw3-devel
-BuildRequires:	libcurl-devel
-BuildRequires:	libexpat-devel
+BuildRequires:	curl-devel
+BuildRequires:	pkgconfig(expat)
 
 %description
 Currently, MusicDNS and the Open Fingerprint Architecture are being used to:
