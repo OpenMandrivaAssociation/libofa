@@ -55,9 +55,10 @@ necessary for developing libofa enabled tagging applications.
 %prep
 %setup -q
 %apply_patches
+mv configure.in configure.ac
 
 %build
-%configure2_5x --disable-static
+%configure --disable-static
 %make
 
 %install
