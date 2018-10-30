@@ -5,7 +5,7 @@
 Summary:	Open Fingerprint Architecture library
 Name:		libofa
 Version:	0.9.3
-Release:	29
+Release:	30
 License:	GPLv2
 Group:		System/Libraries
 Url:		http://code.google.com/p/musicip-libofa/
