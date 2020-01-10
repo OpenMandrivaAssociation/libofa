@@ -54,7 +54,7 @@ necessary for developing libofa enabled tagging applications.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 mv configure.in configure.ac
 
 %build
