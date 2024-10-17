@@ -8,7 +8,7 @@ Version:	0.9.3
 Release:	31
 License:	GPLv2
 Group:		System/Libraries
-Url:		http://code.google.com/p/musicip-libofa/
+Url:		https://code.google.com/p/musicip-libofa/
 Source0:	http://musicip-libofa.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		libofa-build-fix.patch
 Patch1:		libofa-gcc43.diff
