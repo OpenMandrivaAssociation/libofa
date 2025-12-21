@@ -15,6 +15,11 @@ Patch1:		libofa-gcc43.diff
 Patch2:		libofa-0.9.3-pkgconfig-drop-expat.patch
 Patch3:		libofa-0.9.3-curl.patch
 Patch4:		libofa-0.9.3-fedora-gcc47.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(fftw3)
 BuildRequires:	pkgconfig(libcurl)
